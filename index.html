@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Visão Nobre | Inscrição</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <header class="hero">
+      <div class="overlay"></div>
+      <div class="container hero-content fade-in-up">
+        <img src="assets/logo.png" alt="Logo Visão Nobre" class="logo" />
+        <h1>Projeto Social Visão Nobre</h1>
+        <p>
+          Transformando vidas com o curso gratuito de barbeiro. Faça sua inscrição
+          e dê o próximo passo na sua carreira.
+        </p>
+        <a href="#inscricao" class="btn btn-primary">Fazer inscrição</a>
+      </div>
+    </header>
+
+    <main class="container">
+      <section class="about card fade-in-up delay-1">
+        <h2>Sobre o projeto</h2>
+        <p>
+          O Visão Nobre nasceu para criar oportunidades reais para jovens e adultos
+          através da capacitação profissional. Nosso curso gratuito de barbeiro une
+          técnica, disciplina e empreendedorismo para abrir portas no mercado.
+        </p>
+      </section>
+
+      <section id="inscricao" class="card form-section fade-in-up delay-2">
+        <div class="section-header">
+          <h2>Formulário de inscrição</h2>
+          <span class="badge">Vagas limitadas</span>
+        </div>
+
+        <form id="inscricaoForm" novalidate>
+          <div class="form-grid">
+            <div class="input-group">
+              <label for="nome">Nome completo</label>
+              <input type="text" id="nome" name="nome" required />
+            </div>
+
+            <div class="input-group">
+              <label for="cpf">CPF</label>
+              <input
+                type="text"
+                id="cpf"
+                name="cpf"
+                inputmode="numeric"
+                maxlength="14"
+                required
+              />
+            </div>
+
+            <div class="input-group">
+              <label for="idade">Idade</label>
+              <input type="number" id="idade" name="idade" min="10" max="99" required />
+            </div>
+
+            <div class="input-group">
+              <label for="nascimento">Data de nascimento</label>
+              <input type="date" id="nascimento" name="nascimento" required />
+            </div>
+
+            <div class="input-group">
+              <label for="telefone">Telefone</label>
+              <input
+                type="text"
+                id="telefone"
+                name="telefone"
+                inputmode="numeric"
+                maxlength="15"
+                required
+              />
+            </div>
+
+            <div class="input-group">
+              <label for="whatsapp">WhatsApp</label>
+              <input
+                type="text"
+                id="whatsapp"
+                name="whatsapp"
+                inputmode="numeric"
+                maxlength="15"
+                required
+              />
+            </div>
+
+            <div class="input-group">
+              <label for="email">E-mail</label>
+              <input type="email" id="email" name="email" required />
+            </div>
+
+            <div class="input-group">
+              <label for="cidade">Cidade</label>
+              <input type="text" id="cidade" name="cidade" required />
+            </div>
+
+            <div class="input-group full">
+              <label for="bairro">Bairro</label>
+              <input type="text" id="bairro" name="bairro" required />
+            </div>
+          </div>
+
+          <button type="submit" id="submitBtn" class="btn btn-primary btn-full">
+            <span class="btn-label">Enviar inscrição</span>
+            <span class="spinner hidden"></span>
+          </button>
+        </form>
+      </section>
+    </main>
+
+    <div id="toastContainer" class="toast-container"></div>
+
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+    <script src="supabase.js"></script>
+    <script src="script.js"></script>
+  </body>
+</html>
