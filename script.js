@@ -93,11 +93,6 @@ whatsappInput?.addEventListener("input", (event) => {
 form?.addEventListener("submit", async (event) => {
   event.preventDefault();
 
-  if (!supabaseClient || SUPABASE_URL.includes("COLE_AQUI")) {
-    showToast("Configure o Supabase no arquivo supabase.js antes de enviar.", "error");
-    return;
-  }
-
   const payload = {
     nome: form.nome.value.trim(),
     cpf: applyCpfMask(form.cpf.value),
@@ -118,14 +113,7 @@ form?.addEventListener("submit", async (event) => {
 
   setLoading(true);
   try {
-    const { error } = await supabaseClient.from("inscricoes").insert([payload]);
-    if (error) {
-      if (error.message?.toLowerCase().includes("duplicate")) {
-        throw new Error("Este CPF já foi inscrito.");
-      }
-      throw error;
-    }
-
+    LocalDB.addInscricao(payload);
     form.reset();
     showToast("Inscrição enviada com sucesso!");
   } catch (err) {

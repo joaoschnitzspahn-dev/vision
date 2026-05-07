@@ -84,41 +84,15 @@ function filterAndRender() {
 }
 
 async function loadInscricoes() {
-  const { data, error } = await supabaseClient
-    .from("inscricoes")
-    .select("*")
-    .order("created_at", { ascending: false });
-
-  if (error) throw error;
-  allInscricoes = data || [];
+  allInscricoes = LocalDB.listInscricoes();
   totalInscritosEl.textContent = String(allInscricoes.length);
   filterAndRender();
 }
 
 async function checkAuthAndInitialize() {
-  if (!supabaseClient || SUPABASE_URL.includes("COLE_AQUI")) {
-    showToast("Configure o Supabase em supabase.js antes de usar o painel.", "error");
-    return;
-  }
-
-  const { data, error } = await supabaseClient.auth.getSession();
-  if (error) {
-    showToast("Erro ao validar sessão.", "error");
-    return;
-  }
-
-  const user = data?.session?.user || null;
-  if (!user) {
+  if (!LocalDB.isAdminLoggedIn()) {
     adminLoginCard.classList.remove("hidden");
     adminDashboard.classList.add("hidden");
-    return;
-  }
-
-  if (!isAdminEmail(user.email)) {
-    await supabaseClient.auth.signOut();
-    adminLoginCard.classList.remove("hidden");
-    adminDashboard.classList.add("hidden");
-    showToast("Acesso negado: usuário não autorizado como administrador.", "error");
     return;
   }
 
@@ -144,16 +118,7 @@ adminLoginForm?.addEventListener("submit", async (event) => {
 
   setLoginLoading(true);
   try {
-    const { data, error } = await supabaseClient.auth.signInWithPassword({
-      email,
-      password,
-    });
-    if (error) throw error;
-
-    if (!isAdminEmail(data.user?.email)) {
-      await supabaseClient.auth.signOut();
-      throw new Error("Usuário não está autorizado como administrador.");
-    }
+    LocalDB.loginAdmin(email, password);
 
     showToast("Login realizado com sucesso!");
     adminLoginForm.reset();
@@ -166,7 +131,7 @@ adminLoginForm?.addEventListener("submit", async (event) => {
 });
 
 logoutBtn?.addEventListener("click", async () => {
-  await supabaseClient.auth.signOut();
+  LocalDB.logoutAdmin();
   showToast("Sessão finalizada.");
   adminDashboard.classList.add("hidden");
   adminLoginCard.classList.remove("hidden");
@@ -187,8 +152,7 @@ tableBody?.addEventListener("click", async (event) => {
   if (!confirmed) return;
 
   try {
-    const { error } = await supabaseClient.from("inscricoes").delete().eq("id", id);
-    if (error) throw error;
+    LocalDB.deleteInscricao(id);
     showToast("Inscrição excluída com sucesso.");
     await loadInscricoes();
   } catch (err) {
