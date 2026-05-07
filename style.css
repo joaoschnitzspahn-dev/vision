@@ -54,6 +54,29 @@ body {
   z-index: 2;
 }
 
+.admin-shortcut {
+  position: absolute;
+  top: 18px;
+  right: 18px;
+  z-index: 3;
+  padding: 8px 12px;
+  font-size: 0.8rem;
+  font-weight: 700;
+  text-decoration: none;
+  color: var(--gold-strong);
+  background: rgba(0, 0, 0, 0.55);
+  border: 1px solid rgba(212, 175, 55, 0.55);
+  border-radius: 999px;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+  transition: all 0.25s ease;
+}
+
+.admin-shortcut:hover {
+  color: #111;
+  background: linear-gradient(120deg, var(--gold), var(--gold-strong));
+  border-color: transparent;
+}
+
 .logo {
   width: min(280px, 60vw);
   margin-bottom: 22px;
@@ -369,6 +392,12 @@ td .btn-delete {
 }
 
 @media (max-width: 700px) {
+  .admin-shortcut {
+    top: 14px;
+    right: 14px;
+    font-size: 0.75rem;
+  }
+
   .hero {
     min-height: 62vh;
   }
