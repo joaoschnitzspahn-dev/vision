@@ -3,33 +3,35 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta name="description" content="Detalhes do curso profissionalizante da Visão Nobre." />
+    <meta name="description" content="Detalhes do curso gratuito do Projeto Social Visão Nobre." />
     <meta name="robots" content="index, follow" />
     <meta property="og:type" content="website" />
     <link rel="canonical" href="https://vision-zeta-eight.vercel.app/curso/" />
-    <title>Curso | Visão Nobre</title>
+    <title>Curso | Projeto Social Visão Nobre</title>
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:opsz,wght@9..40,400;9..40,500;9..40,600;9..40,700&family=Syne:wght@600;700;800&display=swap" rel="stylesheet" />
     <link rel="stylesheet" href="style.css" />
   </head>
   <body>
+    <div id="topBar" class="top-bar"></div>
     <header id="siteHeader" class="site-header"></header>
 
     <div id="courseContent">
       <section class="course-banner">
         <div class="course-banner-bg">
-          <img id="courseBannerImg" src="" alt="" loading="eager" width="1200" height="400" />
+          <img id="courseBannerImg" src="" alt="" loading="eager" width="1200" height="400" decoding="async" onerror="this.onerror=null;this.src='assets/cursos/placeholder.svg';" />
         </div>
         <div class="course-banner-overlay"></div>
         <div class="container course-banner-content">
-          <span class="badge" id="courseAgeBadge"></span>
+          <span class="badge" id="courseFreeBadge"></span>
+          <span class="badge badge-brand" id="courseAgeBadge"></span>
           <h1 id="courseTitle"></h1>
           <p id="courseSubtitle"></p>
         </div>
       </section>
 
-      <main class="section">
+      <main class="section section-light">
         <div class="container course-detail-grid">
           <div>
             <div class="content-block reveal">
@@ -60,9 +62,9 @@
 
           <aside class="sticky-form">
             <div class="card form-section reveal">
-              <div class="section-header">
+              <div class="section-header-row">
                 <h2>Inscreva-se</h2>
-                <span class="badge badge-sm" id="courseDuration"></span>
+                <span class="badge" id="courseDuration"></span>
               </div>
               <form id="inscricaoForm" novalidate>
                 <div class="form-grid">

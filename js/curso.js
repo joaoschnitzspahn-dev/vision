@@ -10,7 +10,7 @@ if (!course) {
   initLayout("cursos");
 
   renderHeadMeta({
-    title: `${course.nome} | Visão Nobre`,
+    title: `${course.nome} | Projeto Social Visão Nobre`,
     description: course.descricao_curta,
     path: `/curso/${course.slug}`,
     image: `${SITE_CONFIG.url}/${course.imagem}`,
@@ -20,6 +20,7 @@ if (!course) {
   document.getElementById("courseBannerImg").alt = course.imagem_alt || course.nome;
   document.getElementById("courseTitle").textContent = course.nome;
   document.getElementById("courseSubtitle").textContent = course.descricao_curta;
+  document.getElementById("courseFreeBadge").textContent = course.gratuito ? "Curso gratuito" : "Projeto social";
   document.getElementById("courseAgeBadge").textContent = `Idade mínima: ${course.idade_minima} anos`;
   document.getElementById("courseDescription").textContent = course.descricao;
   document.getElementById("courseDuration").textContent = `Duração: ${course.duracao}`;

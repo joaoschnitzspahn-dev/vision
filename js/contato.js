@@ -3,7 +3,8 @@ initLayout("contato");
 const icons = document.querySelectorAll(".contact-info-item .icon");
 if (icons[0]) icons[0].innerHTML = getIconSvg("whatsapp");
 if (icons[1]) icons[1].innerHTML = getIconSvg("email");
-if (icons[2]) icons[2].innerHTML = getIconSvg("location");
+if (icons[2]) icons[2].innerHTML = getIconSvg("instagram");
+if (icons[3]) icons[3].innerHTML = getIconSvg("location");
 
 const whatsappLink = document.getElementById("contactWhatsapp");
 whatsappLink.href = SITE_CONFIG.redes.whatsapp;
@@ -12,6 +13,9 @@ whatsappLink.textContent = SITE_CONFIG.whatsapp_display;
 const emailLink = document.getElementById("contactEmail");
 emailLink.href = `mailto:${SITE_CONFIG.email}`;
 emailLink.textContent = SITE_CONFIG.email;
+
+const instagramLink = document.getElementById("contactInstagram");
+instagramLink.href = SITE_CONFIG.redes.instagram;
 
 document.getElementById("contactAddress").textContent = SITE_CONFIG.endereco;
 

@@ -3,85 +3,111 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta name="description" content="Cursos profissionalizantes de Barbeiro e Manicure. Capacitação prática, certificado e preparação para o mercado de trabalho." />
+    <meta name="description" content="Projeto Social Visão Nobre — cursos gratuitos de Barbeiro e Manicure. Transformando vidas pela capacitação profissional." />
     <meta name="robots" content="index, follow" />
-    <meta property="og:title" content="Visão Nobre | Cursos Profissionalizantes" />
-    <meta property="og:description" content="Transforme sua carreira com cursos profissionalizantes de Barbeiro e Manicure." />
+    <meta property="og:title" content="Projeto Social Visão Nobre" />
+    <meta property="og:description" content="Transformando vidas com cursos gratuitos de barbeiro e manicure." />
     <meta property="og:type" content="website" />
     <meta property="og:locale" content="pt_BR" />
     <meta property="og:url" content="https://vision-zeta-eight.vercel.app/" />
     <meta property="og:image" content="https://vision-zeta-eight.vercel.app/assets/logo.png" />
     <meta name="twitter:card" content="summary_large_image" />
     <link rel="canonical" href="https://vision-zeta-eight.vercel.app/" />
-    <title>Visão Nobre | Cursos Profissionalizantes</title>
+    <title>Projeto Social Visão Nobre</title>
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:opsz,wght@9..40,400;9..40,500;9..40,600;9..40,700&family=Syne:wght@600;700;800&display=swap" rel="stylesheet" />
     <link rel="stylesheet" href="style.css" />
   </head>
   <body>
+    <div id="topBar" class="top-bar"></div>
     <header id="siteHeader" class="site-header"></header>
 
-    <section class="hero">
-      <div class="overlay"></div>
-      <div class="container hero-content fade-in-up">
-        <img src="assets/logo.png" alt="Logo Visão Nobre" class="hero-logo" width="280" height="120" />
-        <h1>Transforme sua carreira com a Visão Nobre</h1>
-        <p>
-          Cursos profissionalizantes de Barbeiro e Manicure com aulas práticas,
-          certificado e preparação para o mercado de trabalho.
-        </p>
-        <div class="hero-actions">
-          <a href="/cursos" class="btn btn-primary">Ver Cursos</a>
-          <a href="/cursos#inscricao" class="btn btn-outline">Inscreva-se</a>
+    <section class="hero-ad">
+      <div class="container hero-ad-grid">
+        <div class="hero-ad-copy fade-in-up">
+          <span class="eyebrow">Projeto social · Cursos gratuitos</span>
+          <h1>
+            <span class="brand">Transformando vidas</span><br />
+            com o <span class="gold">Visão Nobre</span>
+          </h1>
+          <p>
+            Oferecemos cursos gratuitos de barbeiro e manicure para quem busca
+            uma nova oportunidade. Faça sua inscrição e dê o próximo passo.
+          </p>
+          <div class="hero-ad-actions">
+            <a href="/cursos" class="btn btn-primary">Ver cursos</a>
+            <a href="/cursos#inscricao" class="btn btn-outline-gold">Inscreva-se</a>
+            <a href="https://www.instagram.com/projetovisaonobre/" target="_blank" rel="noopener noreferrer" class="btn btn-brand">Siga no Instagram</a>
+          </div>
+        </div>
+        <div class="hero-ad-visual fade-in-up delay-1">
+          <div class="hero-logo-wrap">
+            <img
+              src="assets/logo.png"
+              alt="Logo Projeto Social Visão Nobre"
+              class="hero-logo"
+              width="320"
+              height="160"
+              fetchpriority="high"
+              decoding="async"
+            />
+          </div>
+          <div class="hero-stats" id="heroStats"></div>
         </div>
       </div>
     </section>
 
     <main>
-      <section id="sobre" class="section">
-        <div class="container about-grid">
-          <div class="reveal">
-            <h2>Sobre a Visão Nobre</h2>
-            <p>
-              A Visão Nobre nasceu para criar oportunidades reais para jovens e adultos
-              através da capacitação profissional. Unimos técnica, disciplina e
-              empreendedorismo para abrir portas no mercado de beleza e bem-estar.
-            </p>
-            <div class="values-list" id="valuesList"></div>
+      <section id="sobre" class="section section-light">
+        <div class="container">
+          <div class="section-header center reveal">
+            <span class="section-label">Quem somos</span>
+            <h2>Projeto Social Visão Nobre</h2>
+            <p id="sobreText"></p>
           </div>
-          <div class="card reveal">
-            <h2>Missão</h2>
-            <p id="missaoText"></p>
+          <div class="about-bento">
+            <div class="about-main reveal">
+              <span class="section-label">Nossos valores</span>
+              <div class="values-grid" id="valuesList"></div>
+            </div>
+            <div class="mission-card reveal">
+              <span class="section-label">Missão</span>
+              <h2>Propósito</h2>
+              <p id="missaoText"></p>
+            </div>
           </div>
         </div>
       </section>
 
-      <section id="cursos" class="section section-alt">
+      <section id="cursos" class="section section-tint">
         <div class="container">
-          <div class="section-header-center reveal">
-            <h2>Cursos em destaque</h2>
-            <p>Conheça nossos cursos profissionalizantes e escolha o caminho ideal para sua carreira.</p>
+          <div class="section-header center reveal">
+            <span class="section-label">Oportunidades</span>
+            <h2>Cursos oferecidos</h2>
+            <p>Conheça os cursos gratuitos disponíveis e escolha o caminho ideal para você.</p>
           </div>
-          <div id="featuredCourses" class="courses-grid"></div>
+          <div id="featuredCourses" class="courses-showcase"></div>
         </div>
       </section>
 
-      <section id="diferenciais" class="section">
+      <section id="diferenciais" class="section section-light">
         <div class="container">
-          <div class="section-header-center reveal">
-            <h2>Nossos diferenciais</h2>
-            <p>O que faz a Visão Nobre a escolha certa para sua formação profissional.</p>
+          <div class="section-header center reveal">
+            <span class="section-label">Por que participar</span>
+            <h2>Nosso impacto</h2>
+            <p>O que torna o Visão Nobre um projeto social de referência na comunidade.</p>
           </div>
-          <div id="differentialsGrid" class="diff-grid"></div>
+          <div id="differentialsGrid" class="diff-strip"></div>
         </div>
       </section>
 
-      <section id="depoimentos" class="section section-alt">
+      <section id="depoimentos" class="section section-tint">
         <div class="container">
-          <div class="section-header-center reveal">
+          <div class="section-header center reveal">
+            <span class="section-label">Comunidade</span>
             <h2>Depoimentos</h2>
-            <p>O que nossos alunos dizem sobre a experiência na Visão Nobre.</p>
+            <p>Histórias de quem faz parte do Projeto Social Visão Nobre.</p>
           </div>
           <div id="testimonialsContainer"></div>
         </div>
@@ -89,9 +115,9 @@
 
       <section class="section cta-section">
         <div class="container">
-          <div class="card cta-box reveal">
-            <h2>Pronto para dar o próximo passo?</h2>
-            <p>Inscreva-se agora e comece sua jornada profissional com a Visão Nobre.</p>
+          <div class="cta-banner reveal">
+            <h2>Pronto para transformar sua história?</h2>
+            <p>Inscreva-se agora nos cursos gratuitos do Projeto Social Visão Nobre.</p>
             <a href="/cursos#inscricao" class="btn btn-primary">Fazer inscrição</a>
           </div>
         </div>

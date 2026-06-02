@@ -1,3 +1,9 @@
+function renderTopBar() {
+  const bar = document.getElementById("topBar");
+  if (!bar) return;
+  bar.innerHTML = `Projeto social · Cursos <span>gratuitos</span> · Siga <a href="${SITE_CONFIG.redes.instagram}" target="_blank" rel="noopener noreferrer" style="color:var(--gold-light);text-decoration:underline">@${SITE_CONFIG.redes.instagram.split("/").filter(Boolean).pop()}</a>`;
+}
+
 function renderHeadMeta(options = {}) {
   const {
     title = SITE_CONFIG.titulo,
@@ -8,7 +14,6 @@ function renderHeadMeta(options = {}) {
   } = options;
 
   const url = `${SITE_CONFIG.url}${path}`;
-
   document.title = title;
 
   const setMeta = (selector, content) => {
@@ -58,9 +63,16 @@ function renderSiteHeader(activePage = "") {
 
   header.innerHTML = `
     <div class="container header-inner">
-      <a href="/" class="brand" aria-label="Visão Nobre - Página inicial">
-        <img src="assets/logo.png" alt="Logo Visão Nobre" class="brand-logo" loading="eager" onerror="this.style.display='none';this.nextElementSibling.style.display='block'" />
-        <span class="brand-text" style="display:none">Visão Nobre</span>
+      <a href="/" class="brand" aria-label="Projeto Social Visão Nobre - Página inicial">
+        <img
+          src="assets/logo.png"
+          alt="Logo Projeto Social Visão Nobre"
+          class="brand-logo"
+          width="160"
+          height="52"
+          loading="eager"
+          decoding="async"
+        />
       </a>
       <button class="nav-toggle" aria-label="Abrir menu" aria-expanded="false" aria-controls="siteNav">
         <span></span><span></span><span></span>
@@ -84,53 +96,77 @@ function renderSiteFooter() {
   if (!footer) return;
 
   footer.innerHTML = `
-    <div class="container footer-grid">
-      <div class="footer-brand">
-        <img src="assets/logo.png" alt="Logo Visão Nobre" class="footer-logo" loading="lazy" onerror="this.style.display='none'" />
-        <p>Cursos profissionalizantes com foco em prática, certificação e mercado de trabalho.</p>
-      </div>
-      <div>
-        <h3>Navegação</h3>
-        <ul class="footer-links">
-          <li><a href="/">Início</a></li>
-          <li><a href="/cursos">Cursos</a></li>
-          <li><a href="/contato">Contato</a></li>
-        </ul>
-      </div>
-      <div>
-        <h3>Contato</h3>
-        <ul class="footer-contact">
-          <li><span class="icon">${getIconSvg("whatsapp")}</span> ${SITE_CONFIG.whatsapp_display}</li>
-          <li><span class="icon">${getIconSvg("email")}</span> ${SITE_CONFIG.email}</li>
-          <li><span class="icon">${getIconSvg("location")}</span> ${SITE_CONFIG.endereco}</li>
-        </ul>
-      </div>
-      <div>
-        <h3>Redes sociais</h3>
-        <div class="social-links">
-          <a href="${SITE_CONFIG.redes.instagram}" target="_blank" rel="noopener noreferrer" aria-label="Instagram">${getIconSvg("instagram")}</a>
-          <a href="${SITE_CONFIG.redes.facebook}" target="_blank" rel="noopener noreferrer" aria-label="Facebook">${getIconSvg("facebook")}</a>
-          <a href="${SITE_CONFIG.redes.whatsapp}" target="_blank" rel="noopener noreferrer" aria-label="WhatsApp">${getIconSvg("whatsapp")}</a>
+    <div class="footer-top">
+      <div class="container footer-grid">
+        <div class="footer-brand">
+          <img
+            src="assets/logo.png"
+            alt="Logo Projeto Social Visão Nobre"
+            class="footer-logo"
+            width="160"
+            height="48"
+            loading="lazy"
+            decoding="async"
+          />
+          <p>Projeto social que transforma vidas com cursos gratuitos de barbeiro e manicure.</p>
+        </div>
+        <div>
+          <h3>Navegação</h3>
+          <ul class="footer-links">
+            <li><a href="/">Início</a></li>
+            <li><a href="/cursos">Cursos</a></li>
+            <li><a href="/contato">Contato</a></li>
+          </ul>
+        </div>
+        <div>
+          <h3>Contato</h3>
+          <ul class="footer-contact">
+            <li><span class="icon">${getIconSvg("whatsapp")}</span> ${SITE_CONFIG.whatsapp_display}</li>
+            <li><span class="icon">${getIconSvg("email")}</span> ${SITE_CONFIG.email}</li>
+            <li><span class="icon">${getIconSvg("location")}</span> ${SITE_CONFIG.endereco}</li>
+          </ul>
+        </div>
+        <div>
+          <h3>Redes sociais</h3>
+          <div class="social-links">
+            <a href="${SITE_CONFIG.redes.instagram}" target="_blank" rel="noopener noreferrer" aria-label="Instagram @projetovisaonobre">${getIconSvg("instagram")}</a>
+            <a href="${SITE_CONFIG.redes.facebook}" target="_blank" rel="noopener noreferrer" aria-label="Facebook">${getIconSvg("facebook")}</a>
+            <a href="${SITE_CONFIG.redes.whatsapp}" target="_blank" rel="noopener noreferrer" aria-label="WhatsApp">${getIconSvg("whatsapp")}</a>
+          </div>
         </div>
       </div>
     </div>
     <div class="footer-bottom">
       <div class="container">
-        <p>&copy; ${new Date().getFullYear()} Visão Nobre. Todos os direitos reservados.</p>
+        <p>&copy; ${new Date().getFullYear()} Projeto Social Visão Nobre. Todos os direitos reservados.</p>
       </div>
     </div>`;
 }
 
 function renderCourseCard(course, options = {}) {
   const { showAge = true, buttonLabel = "Saiba Mais" } = options;
+  const tag = course.gratuito ? "Gratuito" : "Projeto Social";
+
   return `
     <article class="course-card reveal">
       <div class="course-card-image">
-        <img src="${course.imagem}" alt="${course.imagem_alt || course.nome}" loading="lazy" width="400" height="260" />
+        <span class="course-card-tag">${tag}</span>
+        <img
+          src="${course.imagem}"
+          alt="${course.imagem_alt || course.nome}"
+          loading="lazy"
+          decoding="async"
+          width="640"
+          height="400"
+          onerror="this.onerror=null;this.src='assets/cursos/placeholder.svg';"
+        />
       </div>
       <div class="course-card-body">
         <h3>${course.nome}</h3>
-        ${showAge ? `<span class="badge badge-sm">Idade mínima: ${course.idade_minima} anos</span>` : ""}
+        <div class="course-card-meta">
+          ${showAge ? `<span class="badge badge-brand">Idade mínima: ${course.idade_minima} anos</span>` : ""}
+          ${course.duracao ? `<span class="badge">${course.duracao}</span>` : ""}
+        </div>
         <p>${course.descricao_curta || course.descricao}</p>
         <a href="/curso/${course.slug}" class="btn btn-outline">${buttonLabel}</a>
       </div>
@@ -138,6 +174,7 @@ function renderCourseCard(course, options = {}) {
 }
 
 function initLayout(activePage) {
+  renderTopBar();
   renderSiteHeader(activePage);
   renderSiteFooter();
 }

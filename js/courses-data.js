@@ -1,6 +1,5 @@
 /**
  * Catálogo de cursos — adicione novos cursos neste array.
- * Campos obrigatórios: id, slug, nome, idade_minima, imagem, ativo
  */
 const COURSES_CATALOG = [
   {
@@ -9,12 +8,13 @@ const COURSES_CATALOG = [
     nome: "Curso de Barbeiro",
     idade_minima: 16,
     imagem: "assets/cursos/barbeiro.svg",
-    imagem_alt: "Profissional realizando corte de cabelo masculino",
+    imagem_alt: "Aluno do Projeto Social Visão Nobre em aula prática de barbeiro",
     descricao_curta:
-      "Aprenda técnicas profissionais de corte, barba e atendimento para ingressar no mercado da beleza masculina.",
+      "Curso gratuito oferecido pelo projeto social. Aprenda corte, barba e atendimento para ingressar no mercado.",
     descricao:
-      "O Curso de Barbeiro da Visão Nobre forma profissionais completos para o mercado de barbearias e salões. Com aulas teóricas e práticas, você desenvolve habilidades técnicas, postura profissional e visão empreendedora para construir uma carreira sólida.",
+      "O Curso de Barbeiro do Projeto Social Visão Nobre é uma oportunidade gratuita de capacitação para jovens e adultos. Com aulas teóricas e práticas, formamos profissionais preparados para o mercado, com foco em dignidade, técnica e transformação de vidas.",
     duracao: "6 meses",
+    gratuito: true,
     conteudo_programatico: [
       "Fundamentos da barbearia e biossegurança",
       "Conhecimento de ferramentas e equipamentos",
@@ -22,15 +22,15 @@ const COURSES_CATALOG = [
       "Degradê, fade e acabamentos",
       "Barba: desenho, navalha e toalha quente",
       "Higiene, esterilização e cuidados com o cliente",
-      "Atendimento ao cliente e vendas",
-      "Empreendedorismo e gestão de barbearia",
+      "Atendimento ao cliente e postura profissional",
+      "Empreendedorismo e primeiros passos no mercado",
     ],
     beneficios: [
-      "Certificado de conclusão reconhecido",
+      "Curso gratuito — projeto social",
+      "Certificado de conclusão",
       "Aulas práticas com acompanhamento",
       "Professores com experiência de mercado",
-      "Preparação para o mercado de trabalho",
-      "Networking com profissionais da área",
+      "Preparação para oportunidades reais de trabalho",
     ],
     aprendizado: [
       "Realizar cortes masculinos clássicos e modernos",
@@ -40,7 +40,7 @@ const COURSES_CATALOG = [
       "Organizar e higienizar o ambiente de trabalho",
     ],
     mercado_trabalho:
-      "O setor de barbearias cresce constantemente no Brasil. Barbearias, salões masculinos, franquias e empreendimentos próprios buscam profissionais qualificados. Com certificação e prática, você pode atuar como barbeiro, assistente ou abrir seu próprio negócio.",
+      "O setor de barbearias segue em crescimento. Com a formação do Visão Nobre, você pode buscar oportunidades em barbearias, salões masculinos ou até empreender com seu próprio negócio.",
     destaque: true,
     ativo: true,
   },
@@ -50,71 +50,79 @@ const COURSES_CATALOG = [
     nome: "Curso de Manicure",
     idade_minima: 16,
     imagem: "assets/cursos/manicure.svg",
-    imagem_alt: "Profissional realizando procedimento de manicure",
+    imagem_alt: "Aluna do Projeto Social Visão Nobre em aula prática de manicure",
     descricao_curta:
-      "Domine técnicas de manicure, pedicure e nail art para atuar em salões, spas e empreendimentos próprios.",
+      "Capacitação oferecida pelo projeto social. Aprenda manicure, pedicure e técnicas essenciais para atuar na área.",
     descricao:
-      "O Curso de Manicure da Visão Nobre prepara você para atuar com excelência no mercado de beleza e bem-estar. O programa combina técnica, criatividade e atendimento profissional, com foco em prática e empregabilidade.",
+      "O Curso de Manicure do Projeto Social Visão Nobre abre portas para quem busca uma nova oportunidade. O programa combina técnica, criatividade e atendimento humanizado, com aulas práticas e acompanhamento de perto.",
     duracao: "4 meses",
+    gratuito: true,
     conteudo_programatico: [
       "Anatomia e cuidados com unhas",
       "Biossegurança e esterilização",
       "Manicure tradicional e spa",
       "Pedicure e cuidados com os pés",
-      "Esmaltação em gel e técnicas avançadas",
+      "Esmaltação e técnicas avançadas",
       "Nail art e decoração de unhas",
       "Remoção segura de materiais",
-      "Atendimento, vendas e empreendedorismo",
+      "Atendimento e postura profissional",
     ],
     beneficios: [
+      "Oportunidade via projeto social",
       "Certificado de conclusão",
-      "Prática supervisionada em ambiente real",
+      "Prática supervisionada",
       "Professores qualificados",
-      "Material didático incluso",
-      "Orientação para mercado de trabalho",
+      "Orientação para o mercado de trabalho",
     ],
     aprendizado: [
       "Realizar manicure e pedicure com qualidade",
-      "Aplicar esmaltes e técnicas de alongamento básico",
+      "Aplicar esmaltes e técnicas básicas avançadas",
       "Executar nail art e decorações",
       "Garantir higiene e segurança no atendimento",
       "Atender clientes com postura profissional",
     ],
     mercado_trabalho:
-      "Salões de beleza, spas, clínicas estéticas e atendimento domiciliar demandam manicures qualificadas. O mercado de unhas e nail art segue em expansão, com oportunidades em emprego fixo, freelancing e negócio próprio.",
+      "Salões de beleza, spas e atendimento domiciliar demandam profissionais qualificadas. A formação do Visão Nobre prepara você para buscar essas oportunidades ou empreender.",
     destaque: true,
     ativo: true,
   },
 ];
 
 const SITE_CONFIG = {
-  nome: "Visão Nobre",
-  titulo: "Visão Nobre | Cursos Profissionalizantes",
+  nome: "Projeto Social Visão Nobre",
+  titulo: "Projeto Social Visão Nobre",
   descricao:
-    "Cursos profissionalizantes de Barbeiro e Manicure. Capacitação prática, certificado e preparação para o mercado de trabalho.",
+    "Projeto social que transforma vidas por meio de cursos gratuitos de Barbeiro e Manicure. Capacitação prática, certificado e oportunidades reais.",
   url: "https://vision-zeta-eight.vercel.app",
   email: "contato@visaonobre.com.br",
   whatsapp: "5511999999999",
   whatsapp_display: "(11) 99999-9999",
   endereco: "São Paulo, SP — Brasil",
   redes: {
-    instagram: "https://instagram.com/visaonobre",
-    facebook: "https://facebook.com/visaonobre",
+    instagram: "https://www.instagram.com/projetovisaonobre/",
+    facebook: "https://www.facebook.com/projetovisaonobre",
     whatsapp: "https://wa.me/5511999999999",
   },
   missao:
-    "Capacitar pessoas por meio de cursos profissionalizantes de qualidade, abrindo portas para o mercado de trabalho e o empreendedorismo.",
+    "Transformar vidas por meio da educação profissional gratuita, criando oportunidades reais para jovens e adultos em situação de vulnerabilidade social.",
+  sobre:
+    "O Projeto Social Visão Nobre nasceu para gerar impacto real na comunidade. Oferecemos cursos gratuitos de barbeiro e manicure, unindo técnica, acolhimento e disciplina para abrir portas no mercado de trabalho e no empreendedorismo.",
   valores: [
-    { titulo: "Excelência", descricao: "Ensino de qualidade com foco em resultados reais." },
-    { titulo: "Acessibilidade", descricao: "Oportunidades para quem busca uma nova carreira." },
-    { titulo: "Prática", descricao: "Aprendizado hands-on com professores experientes." },
-    { titulo: "Empregabilidade", descricao: "Formação alinhada às demandas do mercado." },
+    { titulo: "Impacto social", descricao: "Transformação de vidas por meio da educação acessível." },
+    { titulo: "Gratuidade", descricao: "Cursos oferecidos sem custo para quem precisa de uma chance." },
+    { titulo: "Acolhimento", descricao: "Ambiente humano, respeitoso e focado no desenvolvimento de cada aluno." },
+    { titulo: "Oportunidade", descricao: "Preparação prática para o mercado de trabalho e autonomia." },
   ],
   diferenciais: [
     { icone: "certificado", titulo: "Certificado", descricao: "Certificado de conclusão ao final do curso." },
-    { icone: "professor", titulo: "Professores qualificados", descricao: "Instrutores com experiência no mercado." },
-    { icone: "pratica", titulo: "Aulas práticas", descricao: "Aprendizado com exercícios reais e supervisionados." },
-    { icone: "mercado", titulo: "Mercado de trabalho", descricao: "Preparação para atuar ou empreender na área." },
+    { icone: "professor", titulo: "Professores qualificados", descricao: "Instrutores com experiência e vocação social." },
+    { icone: "pratica", titulo: "Aulas práticas", descricao: "Aprendizado real, com exercícios supervisionados." },
+    { icone: "mercado", titulo: "Transformação de vidas", descricao: "Capacitação que gera oportunidades concretas." },
+  ],
+  stats: [
+    { valor: "100%", label: "Gratuito" },
+    { valor: "2", label: "Cursos ativos" },
+    { valor: "+", label: "Vidas transformadas" },
   ],
   depoimentos: [],
 };

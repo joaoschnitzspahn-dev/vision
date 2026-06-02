@@ -2,7 +2,7 @@
   "name": "visao-nobre",
   "version": "2.0.0",
   "private": true,
-  "description": "Site de cursos profissionalizantes Visão Nobre",
+  "description": "Site do Projeto Social Visão Nobre",
   "scripts": {
     "dev": "vercel dev",
     "deploy": "vercel --prod"
