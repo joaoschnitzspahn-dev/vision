@@ -55,6 +55,8 @@ document.getElementById("differentialsGrid").innerHTML = SITE_CONFIG.diferenciai
   )
   .join("");
 
+renderInstagramFeed();
+
 const testimonialsEl = document.getElementById("testimonialsContainer");
 if (SITE_CONFIG.depoimentos.length) {
   testimonialsEl.innerHTML = `

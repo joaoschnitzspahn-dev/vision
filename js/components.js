@@ -68,8 +68,8 @@ function renderSiteHeader(activePage = "") {
           src="assets/logo.png"
           alt="Logo Projeto Social Visão Nobre"
           class="brand-logo"
-          width="180"
-          height="56"
+          width="200"
+          height="72"
           loading="eager"
           decoding="async"
         />
@@ -103,8 +103,8 @@ function renderSiteFooter() {
             src="assets/logo.png"
             alt="Logo Projeto Social Visão Nobre"
             class="footer-logo"
-            width="160"
-            height="48"
+            width="200"
+            height="60"
             loading="lazy"
             decoding="async"
           />
@@ -171,6 +171,42 @@ function renderCourseCard(course, options = {}) {
         <a href="/curso/${course.slug}" class="btn btn-outline">${buttonLabel}</a>
       </div>
     </article>`;
+}
+
+function renderInstagramFeed(containerId = "instagramFeed") {
+  const el = document.getElementById(containerId);
+  if (!el) return;
+
+  const perfil = SITE_CONFIG.instagram_perfil || {};
+  const galeria = SITE_CONFIG.instagram_galeria || [];
+  const igUrl = SITE_CONFIG.redes.instagram;
+
+  const tiles = galeria
+    .map((item, i) => {
+      const link = item.link || igUrl;
+      const inner = item.imagem
+        ? `<img src="${item.imagem}" alt="${item.label || "Post Instagram"}" loading="lazy" decoding="async" width="400" height="400" />`
+        : `<div class="ig-tile-placeholder">${getIconSvg("instagram")}<span>${item.label || "Ver post"}</span></div>`;
+
+      return `
+        <a href="${link}" class="ig-tile reveal" target="_blank" rel="noopener noreferrer" aria-label="${item.label || "Ver no Instagram"}" style="transition-delay:${i * 0.05}s">
+          ${inner}
+          <span class="ig-tile-overlay">Ver no Instagram</span>
+        </a>`;
+    })
+    .join("");
+
+  el.innerHTML = `
+    <div class="instagram-block reveal">
+      <div class="instagram-profile">
+        <div class="instagram-profile-icon">${getIconSvg("instagram")}</div>
+        <h3>Projeto Social Visão Nobre</h3>
+        <p class="handle">@${perfil.handle || "projetovisaonobre"}</p>
+        <p>${perfil.bio || "Acompanhe nosso trabalho nas redes."}</p>
+        <a href="${igUrl}" target="_blank" rel="noopener noreferrer" class="btn btn-gold btn-full">Seguir no Instagram</a>
+      </div>
+      <div class="instagram-grid">${tiles}</div>
+    </div>`;
 }
 
 function initLayout(activePage) {

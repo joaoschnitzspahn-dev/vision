@@ -125,4 +125,16 @@ const SITE_CONFIG = {
     { valor: "+", label: "Vidas transformadas" },
   ],
   depoimentos: [],
+  instagram_perfil: {
+    handle: "projetovisaonobre",
+    bio: "Acompanhe nosso dia a dia, aulas práticas e histórias de transformação.",
+  },
+  instagram_galeria: [
+    { label: "Aulas práticas", link: "https://www.instagram.com/projetovisaonobre/" },
+    { label: "Projeto social", link: "https://www.instagram.com/projetovisaonobre/" },
+    { label: "Nossos alunos", link: "https://www.instagram.com/projetovisaonobre/" },
+    { label: "Barbeiro", link: "https://www.instagram.com/projetovisaonobre/" },
+    { label: "Manicure", link: "https://www.instagram.com/projetovisaonobre/" },
+    { label: "Comunidade", link: "https://www.instagram.com/projetovisaonobre/" },
+  ],
 };

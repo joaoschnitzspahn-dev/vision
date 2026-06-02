@@ -107,7 +107,7 @@ a { color: inherit; text-decoration: none; }
 .brand { display: flex; align-items: center; flex-shrink: 0; }
 
 .brand-logo {
-  height: 44px;
+  height: 58px;
   width: auto;
   object-fit: contain;
 }
@@ -240,8 +240,9 @@ a { color: inherit; text-decoration: none; }
   align-items: center;
   gap: 8px;
   padding: 6px 14px 6px 8px;
-  background: rgba(0, 119, 230, 0.12);
-  border: 1px solid rgba(0, 153, 255, 0.25);
+  background: rgba(0, 119, 230, 0.1);
+  border: 1px solid rgba(0, 153, 255, 0.22);
+  border-left: 3px solid var(--gold);
   border-radius: 999px;
   font-size: 0.75rem;
   font-weight: 600;
@@ -255,8 +256,8 @@ a { color: inherit; text-decoration: none; }
   width: 8px;
   height: 8px;
   border-radius: 50%;
-  background: var(--cyan);
-  box-shadow: 0 0 12px var(--cyan);
+  background: var(--gold-light);
+  box-shadow: 0 0 10px rgba(212, 175, 55, 0.6);
   animation: pulse 2s ease infinite;
 }
 
@@ -308,41 +309,39 @@ a { color: inherit; text-decoration: none; }
 
 .hero-orb {
   position: relative;
-  width: min(380px, 80vw);
-  aspect-ratio: 1;
+  width: min(320px, 78vw);
+  min-height: 380px;
   display: grid;
   place-items: center;
+  padding: 24px;
 }
 
 .hero-orb::before {
   content: "";
   position: absolute;
   inset: 0;
-  border-radius: 50%;
-  background: radial-gradient(circle, rgba(0, 153, 255, 0.2) 0%, rgba(0, 212, 255, 0.08) 40%, transparent 70%);
+  border-radius: 50% 50% 45% 45%;
+  background: radial-gradient(ellipse 80% 70% at 50% 40%, rgba(0, 153, 255, 0.18) 0%, rgba(0, 212, 255, 0.06) 45%, transparent 72%);
   animation: orbPulse 4s ease-in-out infinite;
 }
 
 .hero-orb::after {
   content: "";
   position: absolute;
-  inset: 12%;
-  border-radius: 50%;
-  border: 1px solid rgba(0, 212, 255, 0.15);
-}
-
-@keyframes orbPulse {
-  0%, 100% { transform: scale(1); opacity: 0.8; }
-  50% { transform: scale(1.05); opacity: 1; }
+  inset: 8% 15% 12%;
+  border-radius: 50% 50% 42% 42%;
+  border: 1px solid rgba(0, 212, 255, 0.12);
+  box-shadow: 0 0 0 1px rgba(212, 175, 55, 0.08);
 }
 
 .hero-logo {
   position: relative;
   z-index: 2;
-  width: min(280px, 70vw);
+  width: min(220px, 62vw);
   height: auto;
+  max-height: 300px;
   object-fit: contain;
-  filter: drop-shadow(0 20px 40px rgba(0, 119, 230, 0.25));
+  filter: drop-shadow(0 16px 36px rgba(0, 119, 230, 0.3));
 }
 
 .hero-metrics {
@@ -356,6 +355,13 @@ a { color: inherit; text-decoration: none; }
   text-align: center;
 }
 
+.hero-metric:first-child strong {
+  background: var(--gradient-gold);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
 .hero-metric strong {
   display: block;
   font-family: var(--font-display);
@@ -366,6 +372,11 @@ a { color: inherit; text-decoration: none; }
   -webkit-text-fill-color: transparent;
   background-clip: text;
   line-height: 1.2;
+}
+
+@keyframes orbPulse {
+  0%, 100% { transform: scale(1); opacity: 0.8; }
+  50% { transform: scale(1.04); opacity: 1; }
 }
 
 .hero-metric span {
@@ -531,6 +542,7 @@ a { color: inherit; text-decoration: none; }
 .value-pill {
   background: var(--bg-card);
   border: 1px solid var(--line);
+  border-left: 3px solid var(--gold);
   border-radius: var(--radius);
   padding: 16px 18px;
   transition: border-color 0.25s;
@@ -549,6 +561,137 @@ a { color: inherit; text-decoration: none; }
   font-size: 0.8rem;
   color: var(--text-muted);
 }
+
+.section-eyebrow-gold { color: var(--gold-light); }
+.section-eyebrow-gold::before {
+  background: linear-gradient(90deg, var(--gold), var(--cyan));
+}
+
+/* ─── Instagram feed ─── */
+.instagram-block {
+  display: grid;
+  grid-template-columns: 280px 1fr;
+  gap: 20px;
+  align-items: start;
+}
+
+.instagram-profile {
+  background: var(--bg-card);
+  border: 1px solid var(--line);
+  border-radius: var(--radius-lg);
+  padding: 28px 24px;
+  text-align: center;
+  position: sticky;
+  top: calc(var(--header-h) + 20px);
+}
+
+.instagram-profile-icon {
+  width: 64px;
+  height: 64px;
+  margin: 0 auto 16px;
+  border-radius: 50%;
+  background: var(--gradient-brand);
+  display: grid;
+  place-items: center;
+  color: #fff;
+  box-shadow: 0 8px 24px rgba(0, 119, 230, 0.3);
+}
+
+.instagram-profile-icon svg { width: 32px; height: 32px; }
+
+.instagram-profile h3 {
+  font-family: var(--font-display);
+  font-size: 1rem;
+  font-weight: 700;
+  color: var(--text);
+  margin-bottom: 6px;
+}
+
+.instagram-profile .handle {
+  font-size: 0.88rem;
+  color: var(--cyan);
+  font-weight: 600;
+  margin-bottom: 12px;
+}
+
+.instagram-profile p {
+  font-size: 0.82rem;
+  color: var(--text-muted);
+  line-height: 1.6;
+  margin-bottom: 20px;
+}
+
+.instagram-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 12px;
+}
+
+.ig-tile {
+  position: relative;
+  aspect-ratio: 1;
+  border-radius: var(--radius);
+  overflow: hidden;
+  border: 1px solid var(--line);
+  background: var(--bg-card);
+  display: block;
+  transition: transform 0.25s, border-color 0.25s, box-shadow 0.25s;
+}
+
+.ig-tile:hover {
+  transform: scale(1.02);
+  border-color: rgba(0, 212, 255, 0.35);
+  box-shadow: 0 8px 28px rgba(0, 119, 230, 0.2);
+}
+
+.ig-tile img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.ig-tile-placeholder {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  padding: 16px;
+  text-align: center;
+  background: linear-gradient(145deg, rgba(0, 71, 168, 0.35), rgba(0, 212, 255, 0.08));
+}
+
+.ig-tile-placeholder svg {
+  width: 28px;
+  height: 28px;
+  color: var(--cyan-soft);
+  opacity: 0.7;
+}
+
+.ig-tile-placeholder span {
+  font-size: 0.72rem;
+  font-weight: 600;
+  color: var(--text-soft);
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+
+.ig-tile-overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(3, 5, 8, 0.55);
+  display: grid;
+  place-items: center;
+  opacity: 0;
+  transition: opacity 0.25s;
+  color: #fff;
+  font-size: 0.78rem;
+  font-weight: 600;
+}
+
+.ig-tile:hover .ig-tile-overlay { opacity: 1; }
 
 /* ─── Course cards ─── */
 .courses-showcase,
@@ -751,6 +894,18 @@ a { color: inherit; text-decoration: none; }
   background: radial-gradient(circle at 50% 0%, rgba(0, 119, 230, 0.15), transparent 60%);
 }
 
+.cta-vn::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 80px;
+  height: 3px;
+  background: var(--gradient-gold);
+  border-radius: 0 0 4px 4px;
+}
+
 .cta-vn h2 {
   font-family: var(--font-display);
   font-size: clamp(1.6rem, 3vw, 2.2rem);
@@ -829,7 +984,7 @@ a { color: inherit; text-decoration: none; }
 }
 
 .footer-logo {
-  height: 40px;
+  height: 56px;
   width: auto;
   object-fit: contain;
   margin-bottom: 14px;
@@ -1362,7 +1517,9 @@ td .btn-delete {
   .bento-mission { grid-column: 1; }
   .bento-values { grid-column: 1; grid-row: auto; }
   .impact-grid { grid-template-columns: repeat(2, 1fr); }
-  .course-detail-grid, .contact-grid, .footer-grid { grid-template-columns: 1fr; }
+  .course-detail-grid, .contact-grid, .footer-grid, .instagram-block { grid-template-columns: 1fr; }
+  .instagram-profile { position: static; }
+  .instagram-grid { grid-template-columns: repeat(3, 1fr); }
   .dashboard-filters { grid-template-columns: 1fr 1fr; }
   .sticky-form { position: static; }
 }
@@ -1398,7 +1555,8 @@ td .btn-delete {
 
 @media (max-width: 480px) {
   .hero-vn-actions { flex-direction: column; align-items: stretch; }
-  .brand-logo { height: 36px; }
+  .brand-logo { height: 48px; }
+  .instagram-grid { grid-template-columns: repeat(2, 1fr); }
 }
 
 /* Aliases */
