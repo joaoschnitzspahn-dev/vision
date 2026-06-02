@@ -1,7 +1,7 @@
 function renderTopBar() {
   const bar = document.getElementById("topBar");
   if (!bar) return;
-  bar.innerHTML = `Projeto social · Cursos <span>gratuitos</span> · Siga <a href="${SITE_CONFIG.redes.instagram}" target="_blank" rel="noopener noreferrer" style="color:var(--gold-light);text-decoration:underline">@${SITE_CONFIG.redes.instagram.split("/").filter(Boolean).pop()}</a>`;
+  bar.innerHTML = `Projeto social · Cursos <span>gratuitos</span> · Siga <a href="${SITE_CONFIG.redes.instagram}" target="_blank" rel="noopener noreferrer">@projetovisaonobre</a>`;
 }
 
 function renderHeadMeta(options = {}) {
@@ -68,8 +68,8 @@ function renderSiteHeader(activePage = "") {
           src="assets/logo.png"
           alt="Logo Projeto Social Visão Nobre"
           class="brand-logo"
-          width="160"
-          height="52"
+          width="180"
+          height="56"
           loading="eager"
           decoding="async"
         />

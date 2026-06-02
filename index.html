@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta name="description" content="Projeto Social Visão Nobre — cursos gratuitos de Barbeiro e Manicure. Transformando vidas pela capacitação profissional." />
+    <meta name="description" content="Projeto Social Visão Nobre — cursos gratuitos de Barbeiro e Manicure. Transformando vidas pela capacitação." />
     <meta name="robots" content="index, follow" />
     <meta property="og:title" content="Projeto Social Visão Nobre" />
     <meta property="og:description" content="Transformando vidas com cursos gratuitos de barbeiro e manicure." />
@@ -16,74 +16,82 @@
     <title>Projeto Social Visão Nobre</title>
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:opsz,wght@9..40,400;9..40,500;9..40,600;9..40,700&family=Syne:wght@600;700;800&display=swap" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Outfit:wght@500;600;700;800&display=swap" rel="stylesheet" />
     <link rel="stylesheet" href="style.css" />
   </head>
   <body>
     <div id="topBar" class="top-bar"></div>
     <header id="siteHeader" class="site-header"></header>
 
-    <section class="hero-ad">
-      <div class="container hero-ad-grid">
-        <div class="hero-ad-copy fade-in-up">
-          <span class="eyebrow">Projeto social · Cursos gratuitos</span>
+    <section class="hero-vn">
+      <div class="container hero-vn-grid">
+        <div class="hero-vn-copy fade-in-up">
+          <div class="hero-tag">
+            <span class="hero-tag-dot"></span>
+            Projeto social · Cursos gratuitos
+          </div>
           <h1>
-            <span class="brand">Transformando vidas</span><br />
+            <span class="gradient">Transformando vidas</span><br />
             com o <span class="gold">Visão Nobre</span>
           </h1>
           <p>
             Oferecemos cursos gratuitos de barbeiro e manicure para quem busca
             uma nova oportunidade. Faça sua inscrição e dê o próximo passo.
           </p>
-          <div class="hero-ad-actions">
-            <a href="/cursos" class="btn btn-primary">Ver cursos</a>
-            <a href="/cursos#inscricao" class="btn btn-outline-gold">Inscreva-se</a>
-            <a href="https://www.instagram.com/projetovisaonobre/" target="_blank" rel="noopener noreferrer" class="btn btn-brand">Siga no Instagram</a>
+          <div class="hero-vn-actions">
+            <a href="/cursos#inscricao" class="btn btn-primary">Inscreva-se agora</a>
+            <a href="/cursos" class="btn btn-ghost">Ver cursos</a>
+            <a href="https://www.instagram.com/projetovisaonobre/" target="_blank" rel="noopener noreferrer" class="btn btn-gold">Instagram</a>
           </div>
         </div>
-        <div class="hero-ad-visual fade-in-up delay-1">
-          <div class="hero-logo-wrap">
+        <div class="hero-vn-visual fade-in-up delay-1">
+          <div class="hero-orb">
             <img
               src="assets/logo.png"
               alt="Logo Projeto Social Visão Nobre"
               class="hero-logo"
-              width="320"
-              height="160"
+              width="280"
+              height="280"
               fetchpriority="high"
               decoding="async"
             />
           </div>
-          <div class="hero-stats" id="heroStats"></div>
+          <div class="hero-metrics" id="heroStats"></div>
         </div>
       </div>
     </section>
 
+    <div class="marquee-strip" aria-hidden="true">
+      <div class="marquee-track" id="marqueeTrack"></div>
+    </div>
+
     <main>
-      <section id="sobre" class="section section-light">
+      <section id="sobre" class="section">
         <div class="container">
-          <div class="section-header center reveal">
-            <span class="section-label">Quem somos</span>
+          <div class="section-head center reveal">
+            <span class="section-eyebrow">Quem somos</span>
             <h2>Projeto Social Visão Nobre</h2>
             <p id="sobreText"></p>
           </div>
           <div class="about-bento">
-            <div class="about-main reveal">
-              <span class="section-label">Nossos valores</span>
+            <div class="bento-main reveal">
+              <span class="section-eyebrow">Nossa história</span>
+              <p id="sobreDetail"></p>
               <div class="values-grid" id="valuesList"></div>
             </div>
-            <div class="mission-card reveal">
-              <span class="section-label">Missão</span>
-              <h2>Propósito</h2>
+            <div class="bento-mission reveal">
+              <span class="section-eyebrow">Missão</span>
+              <h3>Propósito</h3>
               <p id="missaoText"></p>
             </div>
           </div>
         </div>
       </section>
 
-      <section id="cursos" class="section section-tint">
+      <section id="cursos" class="section">
         <div class="container">
-          <div class="section-header center reveal">
-            <span class="section-label">Oportunidades</span>
+          <div class="section-head center reveal">
+            <span class="section-eyebrow">Oportunidades</span>
             <h2>Cursos oferecidos</h2>
             <p>Conheça os cursos gratuitos disponíveis e escolha o caminho ideal para você.</p>
           </div>
@@ -91,21 +99,21 @@
         </div>
       </section>
 
-      <section id="diferenciais" class="section section-light">
+      <section id="diferenciais" class="section">
         <div class="container">
-          <div class="section-header center reveal">
-            <span class="section-label">Por que participar</span>
-            <h2>Nosso impacto</h2>
+          <div class="section-head center reveal">
+            <span class="section-eyebrow">Impacto</span>
+            <h2>Por que participar</h2>
             <p>O que torna o Visão Nobre um projeto social de referência na comunidade.</p>
           </div>
-          <div id="differentialsGrid" class="diff-strip"></div>
+          <div id="differentialsGrid" class="impact-grid"></div>
         </div>
       </section>
 
-      <section id="depoimentos" class="section section-tint">
+      <section id="depoimentos" class="section">
         <div class="container">
-          <div class="section-header center reveal">
-            <span class="section-label">Comunidade</span>
+          <div class="section-head center reveal">
+            <span class="section-eyebrow">Comunidade</span>
             <h2>Depoimentos</h2>
             <p>Histórias de quem faz parte do Projeto Social Visão Nobre.</p>
           </div>
@@ -115,7 +123,7 @@
 
       <section class="section cta-section">
         <div class="container">
-          <div class="cta-banner reveal">
+          <div class="cta-vn reveal">
             <h2>Pronto para transformar sua história?</h2>
             <p>Inscreva-se agora nos cursos gratuitos do Projeto Social Visão Nobre.</p>
             <a href="/cursos#inscricao" class="btn btn-primary">Fazer inscrição</a>
