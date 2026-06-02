@@ -173,6 +173,35 @@ function renderCourseCard(course, options = {}) {
     </article>`;
 }
 
+function renderInstagramEmbed(postUrl) {
+  const url = `${postUrl}${postUrl.includes("?") ? "&" : "?"}utm_source=ig_embed&utm_campaign=loading`;
+  return `
+    <div class="ig-embed-wrap reveal">
+      <blockquote
+        class="instagram-media"
+        data-instgrm-permalink="${url}"
+        data-instgrm-version="14"
+        style="background:#fff;border:0;border-radius:12px;margin:0;max-width:100%;min-width:0;padding:0;width:100%;"
+      >
+        <a href="${postUrl}" target="_blank" rel="noopener noreferrer">Ver publicação no Instagram</a>
+      </blockquote>
+    </div>`;
+}
+
+function loadInstagramEmbedScript() {
+  if (window.instgrm) {
+    window.instgrm.Embeds.process();
+    return;
+  }
+  if (document.getElementById("ig-embed-script")) return;
+
+  const script = document.createElement("script");
+  script.id = "ig-embed-script";
+  script.src = "https://www.instagram.com/embed.js";
+  script.async = true;
+  document.body.appendChild(script);
+}
+
 function renderInstagramFeed(containerId = "instagramFeed") {
   const el = document.getElementById(containerId);
   if (!el) return;
@@ -181,20 +210,7 @@ function renderInstagramFeed(containerId = "instagramFeed") {
   const galeria = SITE_CONFIG.instagram_galeria || [];
   const igUrl = SITE_CONFIG.redes.instagram;
 
-  const tiles = galeria
-    .map((item, i) => {
-      const link = item.link || igUrl;
-      const inner = item.imagem
-        ? `<img src="${item.imagem}" alt="${item.label || "Post Instagram"}" loading="lazy" decoding="async" width="400" height="400" />`
-        : `<div class="ig-tile-placeholder">${getIconSvg("instagram")}<span>${item.label || "Ver post"}</span></div>`;
-
-      return `
-        <a href="${link}" class="ig-tile reveal" target="_blank" rel="noopener noreferrer" aria-label="${item.label || "Ver no Instagram"}" style="transition-delay:${i * 0.05}s">
-          ${inner}
-          <span class="ig-tile-overlay">Ver no Instagram</span>
-        </a>`;
-    })
-    .join("");
+  const embeds = galeria.map((item) => renderInstagramEmbed(item.link)).join("");
 
   el.innerHTML = `
     <div class="instagram-block reveal">
@@ -205,8 +221,10 @@ function renderInstagramFeed(containerId = "instagramFeed") {
         <p>${perfil.bio || "Acompanhe nosso trabalho nas redes."}</p>
         <a href="${igUrl}" target="_blank" rel="noopener noreferrer" class="btn btn-gold btn-full">Seguir no Instagram</a>
       </div>
-      <div class="instagram-grid">${tiles}</div>
+      <div class="instagram-embed-grid">${embeds}</div>
     </div>`;
+
+  loadInstagramEmbedScript();
 }
 
 function initLayout(activePage) {

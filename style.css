@@ -511,8 +511,28 @@ a { color: inherit; text-decoration: none; }
 
 .instagram-grid {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: repeat(2, 1fr);
   gap: 10px;
+}
+
+.instagram-embed-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 16px;
+  align-items: start;
+}
+
+.ig-embed-wrap {
+  min-height: 200px;
+  border-radius: var(--radius);
+  overflow: hidden;
+  border: 1px solid var(--line);
+  background: var(--surface);
+}
+
+.ig-embed-wrap .instagram-media {
+  margin: 0 !important;
+  min-width: 0 !important;
 }
 
 .ig-tile {
@@ -1107,7 +1127,8 @@ td .btn-delete {
   .hero-vn-actions { justify-content: center; }
   .about-bento { grid-template-columns: 1fr; }
   .course-detail-grid, .contact-grid, .footer-grid, .instagram-block { grid-template-columns: 1fr; }
-  .instagram-grid { grid-template-columns: repeat(2, 1fr); }
+  .instagram-grid,
+  .instagram-embed-grid { grid-template-columns: 1fr; }
   .dashboard-filters { grid-template-columns: 1fr 1fr; }
   .sticky-form { position: static; }
   .values-grid { grid-template-columns: 1fr; }

@@ -132,11 +132,21 @@ const SITE_CONFIG = {
     bio: "Projeto social em Navegantes (SC). Acompanhe nosso trabalho na comunidade.",
   },
   instagram_galeria: [
-    { label: "Projeto social", link: "https://www.instagram.com/projetovisaonobre/" },
-    { label: "Aulas práticas", link: "https://www.instagram.com/projetovisaonobre/" },
-    { label: "Comunidade", link: "https://www.instagram.com/projetovisaonobre/" },
-    { label: "Barbeiro", link: "https://www.instagram.com/projetovisaonobre/" },
-    { label: "Manicure", link: "https://www.instagram.com/projetovisaonobre/" },
-    { label: "Navegantes", link: "https://www.instagram.com/projetovisaonobre/" },
+    {
+      label: "Post 1",
+      link: "https://www.instagram.com/projetovisaonobre/p/CXTvYFJuwpU/",
+    },
+    {
+      label: "Post 2",
+      link: "https://www.instagram.com/projetovisaonobre/p/CVdSiw7AFd4/",
+    },
+    {
+      label: "Post 3",
+      link: "https://www.instagram.com/projetovisaonobre/p/CVvgL0FJIaG/",
+    },
+    {
+      label: "Post 4",
+      link: "https://www.instagram.com/projetovisaonobre/p/CV0Z2WWp_0A/",
+    },
   ],
 };
