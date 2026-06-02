@@ -145,7 +145,7 @@ function renderSiteFooter() {
 }
 
 function renderCourseCard(course, options = {}) {
-  const { showAge = true, buttonLabel = "Saiba Mais" } = options;
+  const { showAge = true } = options;
   const tag = course.gratuito ? "Gratuito" : "Projeto Social";
 
   return `
@@ -169,38 +169,30 @@ function renderCourseCard(course, options = {}) {
           ${course.duracao ? `<span class="badge">${course.duracao}</span>` : ""}
         </div>
         <p>${course.descricao_curta || course.descricao}</p>
-        <a href="/curso/${course.slug}" class="btn btn-outline">${buttonLabel}</a>
       </div>
     </article>`;
 }
 
-function renderInstagramEmbed(postUrl) {
-  const url = `${postUrl}${postUrl.includes("?") ? "&" : "?"}utm_source=ig_embed&utm_campaign=loading`;
-  return `
-    <div class="ig-embed-wrap reveal">
-      <blockquote
-        class="instagram-media"
-        data-instgrm-permalink="${url}"
-        data-instgrm-version="14"
-        style="background:#fff;border:0;border-radius:12px;margin:0;max-width:100%;min-width:0;padding:0;width:100%;"
-      >
-        <a href="${postUrl}" target="_blank" rel="noopener noreferrer">Ver publicação no Instagram</a>
-      </blockquote>
-    </div>`;
+function getInstagramShortcode(postUrl) {
+  const match = String(postUrl).match(/\/(?:p|reel)\/([^/?#]+)/);
+  return match ? match[1] : "";
 }
 
-function loadInstagramEmbedScript() {
-  if (window.instgrm) {
-    window.instgrm.Embeds.process();
-    return;
-  }
-  if (document.getElementById("ig-embed-script")) return;
+function renderInstagramEmbed(postUrl) {
+  const shortcode = getInstagramShortcode(postUrl);
+  if (!shortcode) return "";
 
-  const script = document.createElement("script");
-  script.id = "ig-embed-script";
-  script.src = "https://www.instagram.com/embed.js";
-  script.async = true;
-  document.body.appendChild(script);
+  return `
+    <div class="ig-embed-wrap reveal">
+      <iframe
+        src="https://www.instagram.com/p/${shortcode}/embed/captioned/"
+        title="Publicação do Instagram @projetovisaonobre"
+        loading="lazy"
+        allowtransparency="true"
+        allow="encrypted-media"
+        scrolling="no"
+      ></iframe>
+    </div>`;
 }
 
 function renderInstagramFeed(containerId = "instagramFeed") {
@@ -224,8 +216,6 @@ function renderInstagramFeed(containerId = "instagramFeed") {
       </div>
       <div class="instagram-embed-grid">${embeds}</div>
     </div>`;
-
-  loadInstagramEmbedScript();
 }
 
 function initLayout(activePage) {
