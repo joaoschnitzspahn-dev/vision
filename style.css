@@ -553,7 +553,7 @@ a { color: inherit; text-decoration: none; }
 .value-pill strong {
   display: block;
   font-size: 0.85rem;
-  color: var(--cyan-soft);
+  color: var(--gold-light);
   margin-bottom: 4px;
 }
 
