@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="Conheça todos os cursos profissionalizantes da Visão Nobre: Barbeiro e Manicure." />
+    <meta name="robots" content="index, follow" />
+    <meta property="og:title" content="Cursos | Visão Nobre" />
+    <meta property="og:description" content="Listagem de cursos profissionalizantes da Visão Nobre." />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://vision-zeta-eight.vercel.app/cursos" />
+    <link rel="canonical" href="https://vision-zeta-eight.vercel.app/cursos" />
+    <title>Cursos | Visão Nobre</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <header id="siteHeader" class="site-header"></header>
+
+    <section class="hero hero-compact">
+      <div class="overlay"></div>
+      <div class="container hero-content">
+        <h1>Nossos Cursos</h1>
+        <p class="page-intro">
+          Escolha o curso ideal e dê o primeiro passo para uma nova carreira profissional.
+        </p>
+      </div>
+    </section>
+
+    <main>
+      <section class="section">
+        <div class="container">
+          <div id="coursesList" class="courses-grid"></div>
+        </div>
+      </section>
+
+      <section id="inscricao" class="section section-alt">
+        <div class="container">
+          <div class="card form-section reveal">
+            <div class="section-header">
+              <h2>Formulário de inscrição</h2>
+              <span class="badge">Vagas limitadas</span>
+            </div>
+            <form id="inscricaoForm" novalidate>
+              <div class="form-grid">
+                <div class="input-group">
+                  <label for="nome">Nome completo</label>
+                  <input type="text" id="nome" name="nome" required autocomplete="name" />
+                </div>
+                <div class="input-group">
+                  <label for="data_nascimento">Data de nascimento</label>
+                  <input type="date" id="data_nascimento" name="data_nascimento" required />
+                </div>
+                <div class="input-group">
+                  <label for="cpf">CPF</label>
+                  <input type="text" id="cpf" name="cpf" inputmode="numeric" maxlength="14" required />
+                </div>
+                <div class="input-group">
+                  <label for="telefone">Telefone</label>
+                  <input type="text" id="telefone" name="telefone" inputmode="numeric" maxlength="15" required />
+                </div>
+                <div class="input-group">
+                  <label for="whatsapp">WhatsApp</label>
+                  <input type="text" id="whatsapp" name="whatsapp" inputmode="numeric" maxlength="15" required />
+                </div>
+                <div class="input-group">
+                  <label for="email">E-mail</label>
+                  <input type="email" id="email" name="email" required autocomplete="email" />
+                </div>
+                <div class="input-group">
+                  <label for="cidade">Cidade</label>
+                  <input type="text" id="cidade" name="cidade" required />
+                </div>
+                <div class="input-group">
+                  <label for="estado">Estado</label>
+                  <select id="estado" name="estado" required></select>
+                </div>
+                <div class="input-group full">
+                  <label for="curso_id">Curso desejado</label>
+                  <select id="curso_id" name="curso_id" required></select>
+                </div>
+              </div>
+              <button type="submit" id="submitBtn" class="btn btn-primary btn-full">
+                <span class="btn-label">Enviar inscrição</span>
+                <span class="spinner hidden"></span>
+              </button>
+            </form>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer id="siteFooter" class="site-footer"></footer>
+    <div id="toastContainer" class="toast-container"></div>
+
+    <script src="js/courses-data.js"></script>
+    <script src="js/localdb.js"></script>
+    <script src="js/db.js"></script>
+    <script src="js/utils.js"></script>
+    <script src="js/components.js"></script>
+    <script src="js/cursos.js"></script>
+  </body>
+</html>

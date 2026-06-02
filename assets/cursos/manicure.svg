@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 500" role="img" aria-label="Curso de Manicure">
+  <defs>
+    <linearGradient id="bg2" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#1a1a1a"/>
+      <stop offset="100%" style="stop-color:#0a0a0a"/>
+    </linearGradient>
+  </defs>
+  <rect width="800" height="500" fill="url(#bg2)"/>
+  <ellipse cx="400" cy="220" rx="120" ry="90" fill="none" stroke="#d4af37" stroke-width="3" opacity="0.5"/>
+  <path d="M340 280 L360 240 L380 280 L400 230 L420 280 L440 240 L460 280" fill="none" stroke="#e2c45e" stroke-width="3" stroke-linecap="round"/>
+  <circle cx="360" cy="240" r="6" fill="#d4af37"/>
+  <circle cx="400" cy="230" r="6" fill="#d4af37"/>
+  <circle cx="440" cy="240" r="6" fill="#d4af37"/>
+  <text x="400" y="420" text-anchor="middle" fill="#e2c45e" font-family="Arial,sans-serif" font-size="28" font-weight="bold">Manicure</text>
+</svg>

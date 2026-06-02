@@ -3,13 +3,11 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="robots" content="noindex, nofollow" />
     <title>Painel Admin | Visão Nobre</title>
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&display=swap"
-      rel="stylesheet"
-    />
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
     <link rel="stylesheet" href="style.css" />
   </head>
   <body class="admin-body">
@@ -17,39 +15,59 @@
       <section id="adminLoginCard" class="card admin-login fade-in-up">
         <h1>Painel Administrativo</h1>
         <p class="subtitle">Acesso restrito para administradores</p>
-
         <form id="adminLoginForm" novalidate>
-          <div class="input-group">
+          <div class="input-group" style="margin-bottom:16px">
             <label for="adminEmail">E-mail</label>
-            <input type="email" id="adminEmail" required />
+            <input type="email" id="adminEmail" required autocomplete="username" />
           </div>
-          <div class="input-group">
+          <div class="input-group" style="margin-bottom:20px">
             <label for="adminPassword">Senha</label>
-            <input type="password" id="adminPassword" required />
+            <input type="password" id="adminPassword" required autocomplete="current-password" />
           </div>
           <button type="submit" id="loginBtn" class="btn btn-primary btn-full">
             <span class="btn-label">Entrar</span>
             <span class="spinner hidden"></span>
           </button>
         </form>
+        <p class="subtitle" style="margin-top:18px;font-size:0.82rem">
+          <a href="/" style="color:var(--gold-strong)">← Voltar ao site</a>
+        </p>
       </section>
 
       <section id="adminDashboard" class="hidden fade-in-up">
-        <div class="dashboard-top">
-          <div class="card stat-card">
-            <span>Total de inscritos</span>
-            <strong id="totalInscritos">0</strong>
-          </div>
-          <div class="card search-card">
-            <label for="searchInput">Pesquisar por nome ou CPF</label>
-            <input
-              type="text"
-              id="searchInput"
-              placeholder="Digite nome ou CPF..."
-              maxlength="80"
-            />
-          </div>
+        <div class="dashboard-header">
+          <h1>Dashboard</h1>
           <button id="logoutBtn" class="btn btn-outline">Sair</button>
+        </div>
+
+        <div class="dashboard-stats" id="statsContainer"></div>
+
+        <div class="card" style="margin-bottom:16px">
+          <h2 style="font-size:1.1rem;margin-bottom:14px">Inscrições recentes</h2>
+          <div id="recentList" class="recent-list"></div>
+        </div>
+
+        <div class="card dashboard-filters">
+          <div class="filter-group">
+            <label for="searchInput">Buscar inscritos</label>
+            <input type="text" id="searchInput" placeholder="Nome, CPF ou e-mail..." maxlength="80" />
+          </div>
+          <div class="filter-group">
+            <label for="filterCurso">Filtrar por curso</label>
+            <select id="filterCurso">
+              <option value="">Todos</option>
+            </select>
+          </div>
+          <div class="filter-group">
+            <label for="filterDataInicio">Data início</label>
+            <input type="date" id="filterDataInicio" />
+          </div>
+          <div class="filter-group">
+            <label for="filterDataFim">Data fim</label>
+            <input type="date" id="filterDataFim" />
+          </div>
+          <button id="exportCsvBtn" class="btn btn-outline">Exportar CSV</button>
+          <button id="exportExcelBtn" class="btn btn-outline">Exportar Excel</button>
         </div>
 
         <div class="card table-card">
@@ -58,14 +76,12 @@
               <thead>
                 <tr>
                   <th>Nome</th>
-                  <th>CPF</th>
                   <th>Idade</th>
-                  <th>Nascimento</th>
+                  <th>Curso</th>
                   <th>Telefone</th>
                   <th>WhatsApp</th>
                   <th>E-mail</th>
                   <th>Cidade</th>
-                  <th>Bairro</th>
                   <th>Data da inscrição</th>
                   <th>Ações</th>
                 </tr>
@@ -77,9 +93,13 @@
       </section>
     </main>
 
+    <div id="modalContainer"></div>
     <div id="toastContainer" class="toast-container"></div>
 
-    <script src="localdb.js"></script>
-    <script src="admin.js"></script>
+    <script src="js/courses-data.js"></script>
+    <script src="js/localdb.js"></script>
+    <script src="js/db.js"></script>
+    <script src="js/utils.js"></script>
+    <script src="js/admin.js"></script>
   </body>
 </html>
