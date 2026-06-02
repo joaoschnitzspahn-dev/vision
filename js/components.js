@@ -1,7 +1,7 @@
 function renderTopBar() {
   const bar = document.getElementById("topBar");
   if (!bar) return;
-  bar.innerHTML = `Projeto social · Cursos <span>gratuitos</span> · Siga <a href="${SITE_CONFIG.redes.instagram}" target="_blank" rel="noopener noreferrer">@projetovisaonobre</a>`;
+  bar.innerHTML = `Projeto social em Navegantes, SC · Bairro São Paulo · <a href="${SITE_CONFIG.redes.instagram}" target="_blank" rel="noopener noreferrer">@projetovisaonobre</a>`;
 }
 
 function renderHeadMeta(options = {}) {
@@ -108,7 +108,7 @@ function renderSiteFooter() {
             loading="lazy"
             decoding="async"
           />
-          <p>Projeto social que transforma vidas com cursos gratuitos de barbeiro e manicure.</p>
+          <p>Projeto social em Navegantes (SC) que ajuda pessoas em situação de necessidade e oferece cursos gratuitos.</p>
         </div>
         <div>
           <h3>Navegação</h3>
