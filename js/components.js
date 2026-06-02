@@ -116,6 +116,7 @@ function renderSiteFooter() {
             <li><a href="/">Início</a></li>
             <li><a href="/cursos">Cursos</a></li>
             <li><a href="/contato">Contato</a></li>
+            <li><a href="/admin">Área admin</a></li>
           </ul>
         </div>
         <div>
@@ -138,7 +139,7 @@ function renderSiteFooter() {
     </div>
     <div class="footer-bottom">
       <div class="container">
-        <p>&copy; ${new Date().getFullYear()} Projeto Social Visão Nobre. Todos os direitos reservados.</p>
+        <p>&copy; ${new Date().getFullYear()} Projeto Social Visão Nobre. Todos os direitos reservados. · <a href="/admin" class="footer-admin-link">Painel admin</a></p>
       </div>
     </div>`;
 }

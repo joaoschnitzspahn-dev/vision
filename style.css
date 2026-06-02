@@ -734,6 +734,14 @@ a { color: inherit; text-decoration: none; }
   border-top: 1px solid #334155;
 }
 
+.footer-admin-link {
+  color: #94a3b8;
+  text-decoration: underline;
+  font-size: 0.75rem;
+}
+
+.footer-admin-link:hover { color: #fff; }
+
 /* Cards & forms */
 .card {
   background: var(--surface);
